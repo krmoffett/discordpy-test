@@ -29,7 +29,7 @@ async def on_message(message):
         print ("Message: " + message.content)
         print ("Command: " + command + "\n")
         #List commands here
-        if command == 'hello':
+        if command == 'hello':      #test command
             response = "hello there!"
 
         elif command == 'help':
