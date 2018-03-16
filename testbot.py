@@ -23,7 +23,7 @@ async def on_message(message):
     usrIn = message.content.split()
     preflen = len(prefix)
     response = ""
-    if usrIn[0][0:preflen] == prefix:
+    if message.content[0:preflen] == prefix:
         command = usrIn[0][preflen:]
         print ("User: " + message.author.name)
         print ("Message: " + message.content)
@@ -31,6 +31,7 @@ async def on_message(message):
         #List commands here
         if command == 'hello':      #test command
             response = "hello there!"
+            em = discord.Embed(title='My Embed Title', description='My Embed Content.', colour=discord.Colour.blue())
 
         elif command == 'help':
             response = "Available commands:\n\t!hello"
@@ -38,6 +39,7 @@ async def on_message(message):
         else:
             response = "Command not recognized.\nPlease use " + prefix + "help for a list of commands"
 
-        await client.send_message(message.channel, response)
+#        await client.send_message(message.channel, response)
+        await client.send_message(message.channel, embed=em)
 
 client.run(token)
