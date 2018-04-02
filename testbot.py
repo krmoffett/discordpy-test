@@ -21,6 +21,8 @@ async def on_ready():
 # Receive message
 async def on_message(message):
     usrIn = message.content.split()
+    if len(usrIn) < 2:
+        userIn.append('blank')
     preflen = len(prefix)
     response = ""
     if message.content[0:preflen] == prefix:
@@ -31,7 +33,7 @@ async def on_message(message):
         #List commands here
         if command == 'hello':      #test command
             response = "hello there!"
-            em = discord.Embed(title='My Embed Title', description='My Embed Content.', colour=discord.Colour.blue())
+            em = discord.Embed(title='My Embed Title', description='My **Embed** Content.', colour=discord.Colour.blue())
 
         elif command == 'help':
             response = "Available commands:\n\t!hello"
